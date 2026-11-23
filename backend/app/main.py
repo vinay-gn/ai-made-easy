@@ -7,7 +7,11 @@ from app.config import get_settings
 
 def create_app() -> FastAPI:
     settings = get_settings()
-    app = FastAPI(title="LLM Roadmap API", version="0.1.0")
+    app = FastAPI(
+        title="AI Made Easy API",
+        description="Learn how to use AI, step by step — free, no jargon. Learning tracks, hands-on examples and verified resources for using ChatGPT and other AI assistants.",
+        version="0.2.0",
+    )
     app.add_middleware(
         CORSMiddleware,
         allow_origins=settings.cors_origin_list,
