@@ -31,7 +31,7 @@ python -m app   # host/port come from .env (APP_HOST / APP_PORT); auto-reloads o
 - Tests: `pytest`
 
 Config (`backend/.env`): `APP_HOST`, `APP_PORT`, `CORS_ORIGINS` (comma-separated), `DATA_FILE`, `ENABLED_TRACKS`.
-Default port is 8001 (8000 is often taken on Windows). If you change it, update `VITE_API_BASE_URL` in `frontend/.env` too.
+Default port is 8001 (8000 is often taken on Windows). The website does not call the backend; it is kept for possible future use.
 
 **Tracks shown:** `ENABLED_TRACKS` (comma-separated, default `use`) controls which tracks the API exposes. The Build track is currently hidden: its data stays in the JSON file, but `/api/tracks`, `/api/stages` and `/api/resources` leave it out, and its mind map and stage ids return `404`. To re-enable it, set `ENABLED_TRACKS=use,build` in `backend/.env` and restart the backend. Unknown track ids in this setting stop the server from starting.
 
