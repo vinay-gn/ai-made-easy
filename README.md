@@ -50,7 +50,13 @@ Copy-Item .env.example .env
 npm run dev
 ```
 
-Open http://localhost:5173. Config (`frontend/.env`): `VITE_API_BASE_URL`, `VITE_DEV_PORT`.
+Open http://localhost:5173. Config (`frontend/.env`): `VITE_DEV_PORT`, `VITE_BASE_PATH` (production base path, default `/ai-made-easy/`).
+
+The site is fully static: content is bundled from `frontend/src/data/roadmap.json` through `src/content.js` (the one place to swap in an API later). The backend is not needed to run or build it.
+
+- `npm test` checks content length limits (`src/content.test.js`, Node's built-in test runner).
+- `npm run build` writes `dist/` (plus `404.html` for SPA deep links); `npm run preview` serves it at http://localhost:4173/ai-made-easy/.
+- Pushes to `main` deploy to GitHub Pages via `.github/workflows/deploy-pages.yml`.
 
 ## Project structure
 
